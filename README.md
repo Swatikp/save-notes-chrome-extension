@@ -23,5 +23,5 @@ If you want to make any tweeks, see the source code attached, and publish your o
 
 For more information read my Medium article here :
 
-[Save-Notes-Medium-Article] ( https://medium.com/@SwatiKp/my-first-chrome-extension-journey-towards-my-smart-goal-a30ed1885d73 )
+[Save-Notes-Medium-Article]( https://medium.com/@SwatiKp/my-first-chrome-extension-journey-towards-my-smart-goal-a30ed1885d73 )
 
