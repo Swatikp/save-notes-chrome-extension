@@ -8,11 +8,11 @@ You can just add this extension to your chrome browser, and start selecting line
 1. Add to file
 2. Save file
 
-Keep on adding any number of lines you want, by selecting add to file by clicking Add to file.
+Keep on adding any number of lines you want, by selecting **add to file** by clicking Add to file.
 
-Once you are done reading, simpl click **Save file** button, and all the lines will be saved as a text file in you system.
+Once you are done reading, simply click **Save file** button, and all the lines will be saved as a text file in you system.
 
-If you are done using the extension, click on its icon, and turn it off throught the slider, simple!!
+If you are done using the extension, click on its icon, and turn it off using the slider button, simple!!
 
 You can directly add this extension to chrome, by following the below link:
 
