@@ -8,7 +8,7 @@ You can just add this extension to your chrome browser, and start selecting line
 1. Add to file
 2. Save file
 
-Keep on adding any number of lines you want, by selecting **add to file** by clicking Add to file.
+Keep on adding any number of lines you want, by clicking **Add to file** button.
 
 Once you are done reading, simply click **Save file** button, and all the lines will be saved as a text file in you system.
 
