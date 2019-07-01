@@ -25,6 +25,11 @@ If you are done using the extension, click on its icon, and turn it off using th
 ### Way forward
 If you want to make any tweeks, see the source code attached, and publish your own extension.
 
+### Contribute
+Please contribute by exploring the tool and reporting the bugs or providing suggestions for new features on [Github Issues](https://github.com/Swatikp/oh-my-link/issues).
+
+To watch the demo of the project click below:</br></br>
+[![Watch the video](https://raw.githubusercontent.com/Swatikp/save-notes-chrome-extension/master/images/save-notes.png)](https://drive.google.com/file/d/1-BJIwFLqS5S6ViJnOdwoAqBgRtwfB3Yv/view?usp=drivesdk)\
 For more information read my Medium article here :
 
 [Save-Notes-Medium-Article]( https://medium.com/@SwatiKp/my-first-chrome-extension-journey-towards-my-smart-goal-a30ed1885d73 )
