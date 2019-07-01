@@ -23,25 +23,18 @@ inputDOM.setAttribute('id', "btn");
 document.body.appendChild(inputDOM);
 
 
-document.addEventListener('mouseup', function (e) {
-    //console.log("here");
+document.addEventListener('mouseup', function(e) {
 
     var selection = window.getSelection();
     if (selection.toString().length > 0) {
-        // console.log("selection is bigger");
         renderBubble(e.pageX, e.pageY, selection);
     }
 }, false);
 
 
 //Close the bubble when we click on the screen.
-document.addEventListener('mousedown', function (e) {
-    //console.log("mousedown")
-    //  console.log(bubbleDOM.id);
-    //  console.log(e.target.id);
-    // console.log(bubbleDOM.style.visibility);
+document.addEventListener('mousedown', function(e) {
     if (bubbleDOM.id != e.target.id && bubbleDOM.style.visibility == 'visible') {
-        //console.log('clicking outside the div');
         bubbleDOM.removeAttribute("value");
         inputDOM.removeAttribute("value");
         bubbleDOM.style.visibility = 'hidden';
@@ -49,20 +42,14 @@ document.addEventListener('mousedown', function (e) {
     }
 }, false);
 
-// Move that bubble to the appropriate location.
-
+// Move the bubble to the appropriate location.
 function renderBubble(mouseX, mouseY, selection) {
-   // console.log("here render")
-    chrome.storage.local.get("isActive", function (data) {
+    chrome.storage.local.get("isActive", function(data) {
         if (data.isActive == true) {
-            //console.log("start");
             showit(mouseX, mouseY, selection);
-            //  console.log(mouseY);
-            //  console.log(mouseX);
 
         } else {
-            chrome.browserAction.setIcon({path:"images/off.png"});
-           // console.log(flag + "*********");
+            chrome.browserAction.setIcon({ path: "images/off.png" });
         }
     });
 
@@ -86,10 +73,10 @@ function showit(mouseX, mouseY, selection) {
         inputDOM.style.top = mouseY + 'px';
         inputDOM.style.left = (mouseX + 102) + 'px';
         inputDOM.style.visibility = 'visible';
-        bubbleDOM.onclick = function () {
+        bubbleDOM.onclick = function() {
             addToFile(selection.toString());
         };
-        inputDOM.onclick = function () {
+        inputDOM.onclick = function() {
             saveFile(selection.toString());
         };
     }
@@ -100,11 +87,11 @@ function saveFile(selection) {
     //console.log("Data to add and thn save :" + selection);
     bubbleDOM.style.visibility = 'hidden';
     inputDOM.style.visibility = 'hidden';
-   // console.log(bubbleDOM.style.visibility);
+    // console.log(bubbleDOM.style.visibility);
     chrome.runtime.sendMessage({
         task: 'saveFile',
         selected: selection
-    }, function () {
+    }, function() {
         bubbleDOM.removeAttribute("value");
         inputDOM.removeAttribute("value");
     });
@@ -113,19 +100,19 @@ function saveFile(selection) {
 
 function addToFile(selection) {
 
-   // console.log("Data to add :" + selection);
+    // console.log("Data to add :" + selection);
 
 
     bubbleDOM.style.visibility = 'hidden';
     inputDOM.style.visibility = 'hidden';
-   // console.log(bubbleDOM.style.visibility);
+    // console.log(bubbleDOM.style.visibility);
 
 
 
     chrome.runtime.sendMessage({
         task: 'addToFile',
         selected: selection
-    }, function () {
+    }, function() {
         bubbleDOM.removeAttribute("value");
         inputDOM.removeAttribute("value");
     });

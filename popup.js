@@ -1,19 +1,14 @@
 var activeTab;
 
 
-
-function myFunction() {
-    //console.log("coming")
-}
-window.onchange = function () {
-    chrome.storage.local.get("isActive", function (data) {
+window.onchange = function() {
+    chrome.storage.local.get("isActive", function(data) {
         if (data.isActive == true) {
-            // console.log("coming inside");
 
-            chrome.browserAction.setIcon({path:"images/off.png"});
+            chrome.browserAction.setIcon({ path: "images/off.png" });
             chrome.storage.local.set({
                 "isActive": false
-            }, function () {
+            }, function() {
                 if (chrome.runtime.lastError) {
                     console.error(
                         "Error setting " + key + " to " + JSON.stringify(data) +
@@ -26,10 +21,10 @@ window.onchange = function () {
 
 
         } else if (data.isActive == false) {
-            chrome.browserAction.setIcon({path:"images/on.png"});
+            chrome.browserAction.setIcon({ path: "images/on.png" });
             chrome.storage.local.set({
                 "isActive": true
-            }, function () {
+            }, function() {
                 if (chrome.runtime.lastError) {
                     console.error(
                         "Error setting " + key + " to " + JSON.stringify(data) +
@@ -42,14 +37,14 @@ window.onchange = function () {
     });
 
 }
-window.onload = function () {
-    chrome.storage.local.get("isActive", function (data) {
+window.onload = function() {
+    chrome.storage.local.get("isActive", function(data) {
 
         if (data.isActive == true) {
-            chrome.browserAction.setIcon({path:"images/on.png"});
+            chrome.browserAction.setIcon({ path: "images/on.png" });
             document.getElementById('switchval').setAttribute('checked', 'checked');
         } else if (data.isActive == false) {
-            chrome.browserAction.setIcon({path:"images/off.png"});
+            chrome.browserAction.setIcon({ path: "images/off.png" });
             document.getElementById('switchval').removeAttribute('checked');
         }
 
