@@ -1,8 +1,9 @@
 var flag;
 var show;
+var screenHeight = window.innerHeight;
+var screenWidth = window.innerWidth;
 
-
-
+var doc = document.documentElement;
 
 var bubbleDOM = document.createElement('input');
 
@@ -65,13 +66,33 @@ function showit(mouseX, mouseY, selection) {
     if (bubbleDOM.hasAttribute('value') == false) {
         bubbleDOM.setAttribute('value', "Add to file");
         inputDOM.setAttribute('value', "Save file");
+        if((mouseX + 180) > screenWidth){
+            bubble_dom_position_x = screenWidth - 200;
+            input_dom_position_x = bubble_dom_position_x + 102;
+        }
+        else{
+            bubble_dom_position_x = mouseX;
+            input_dom_position_x = bubble_dom_position_x + 102;
+        }
+        var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0) + screenHeight;
+        
+        if((mouseY + 100) > top){
+            // position the button such that the bottom of the button is 10 px above mouse
+            bubble_dom_position_y = mouseY - 60;
+            input_dom_position_y = bubble_dom_position_y;
+        }
+        else{
+            // position the button such that the top of the button is 20 px below mouse
+            // i dont want user to accidentally click on "add to file" while double clicking
+            bubble_dom_position_y = mouseY + 20;
+            input_dom_position_y = bubble_dom_position_y;
+        }
 
-
-        bubbleDOM.style.top = mouseY + 'px';
-        bubbleDOM.style.left = mouseX + 'px';
+        bubbleDOM.style.top = bubble_dom_position_y + 'px';
+        bubbleDOM.style.left = bubble_dom_position_x + 'px';
         bubbleDOM.style.visibility = 'visible';
-        inputDOM.style.top = mouseY + 'px';
-        inputDOM.style.left = (mouseX + 102) + 'px';
+        inputDOM.style.top = input_dom_position_y + 'px';
+        inputDOM.style.left = input_dom_position_x + 'px';
         inputDOM.style.visibility = 'visible';
         bubbleDOM.onclick = function() {
             addToFile(selection.toString());
